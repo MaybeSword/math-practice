@@ -160,3 +160,13 @@ legend { font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
   .history td:nth-child(4)::before { content: 'Score: '; color: #5a5070; }
   .history td:nth-child(5)::before { content: 'Accuracy: '; color: #5a5070; }
 }
+
+/* Navigation bar */
+#nav { background: var(--primary); position: sticky; top: 0; z-index: 10; box-shadow: 0 3px 0 #3f2a8f; }
+#nav[hidden] { display: none; }
+#nav ul { list-style: none; margin: 0 auto; padding: 6px 8px; max-width: 720px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+#nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 56px; border-radius: 14px; color: #ffffff; text-decoration: none; font-weight: 800; font-size: 0.95rem; }
+#nav a:hover { background: rgba(255, 255, 255, 0.15); }
+#nav a[aria-current='page'] { background: #ffffff; color: var(--primary); }
+#nav a:focus-visible { outline: 4px solid var(--selected); outline-offset: 2px; }
+.nav-icon { font-size: 1.3rem; line-height: 1.2; }

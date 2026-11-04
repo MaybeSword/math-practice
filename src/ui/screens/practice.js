@@ -6,6 +6,11 @@ import { toMistake } from '../../logic/mistakes.js';
 // Pass `settings` for a normal session, or a ready-made `session` (e.g. review).
 export function renderPractice(root, { go, settings, session: given, store }) {
   const session = given ?? createSession(settings);
+  // Coming back (browser Back/Forward) after an answer was recorded but before Next: move on.
+  if (session.results.length > session.index && !nextQuestion(session)) {
+    go('summary', { session });
+    return;
+  }
   // Save after every recorded answer, so a refresh or closed tab keeps the work (marked incomplete).
   const save = () => store.saveSession(toSessionRecord(session, isFinished(session)));
   const n = session.questions.length;
@@ -52,8 +57,7 @@ export function renderPractice(root, { go, settings, session: given, store }) {
 
   root.querySelector('#quit').addEventListener('click', () => {
     if (!window.confirm('Do you want to stop now? Your answers so far will be kept.')) return;
-    if (session.results.length === 0) go('home');
-    else go('summary', { session });
+    go('summary', { session }); // the app goes Home if nothing was answered
   });
 
   updateScore();

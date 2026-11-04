@@ -70,11 +70,11 @@ Rules: one phase at a time; test by hand; commit per phase; mark finished tasks 
 - [x] Write unit tests for the statistics calculations (check accuracy by hand).
 
 ## Phase 8: Navigation and Routing
-- [ ] Add a hash router for `#/`, `#/setup`, `#/practice`, `#/summary`, `#/mistakes`, `#/stats`.
-- [ ] Add the navigation bar (hidden during an active session).
-- [ ] Handle unknown routes (go to Home).
-- [ ] Test the browser back and forward buttons.
-- [ ] Test a refresh on every route.
+- [x] Add a hash router for `#/`, `#/setup`, `#/practice`, `#/summary`, `#/mistakes`, `#/stats`.
+- [x] Add the navigation bar (hidden during an active session).
+- [x] Handle unknown routes (go to Home).
+- [x] Test the browser back and forward buttons.
+- [x] Test a refresh on every route.
 
 ## Phase 9: Child-Friendly UI and Responsive Design
 - [ ] Choose a bright color palette and a friendly rounded font stack.

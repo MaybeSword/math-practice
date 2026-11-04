@@ -3,7 +3,7 @@
 **Student:** [YOUR NAME] · **Course:** [COURSE] · **Date:** [DATE]
 **GitHub:** [GITHUB URL] · **Live app:** [NETLIFY URL]
 
-> Draft written from what really happened in this project up to Phase 7.
+> Draft written from what really happened in this project up to Phase 8.
 > Text in [square brackets] is for you to fill in or update after the remaining phases.
 
 ## 1. Development approach
@@ -18,6 +18,7 @@ c3a1732 Phase 2: add question cards
 2fd02ad Phase 5: add mistake tracking and review
 685b4b8 Phase 6: add similar questions
 25678d7 Phase 7: add statistics page
+[Phase 8 commit] Phase 8: add hash routing and navigation bar
 [add later phases]
 ```
 
@@ -69,7 +70,7 @@ Problems that really came up during development:
 
 ## 4. Testing
 
-**Automated unit tests (Vitest).** The pure logic is kept separate from the page code so it can be tested. There are currently 179 tests in 6 files, and all pass:
+**Automated unit tests (Vitest).** The pure logic is kept separate from the page code so it can be tested. There are currently 187 tests in 7 files, and all pass:
 
 | File | What it checks |
 |---|---|
@@ -78,6 +79,7 @@ Problems that really came up during development:
 | `storage.test.js` | Save and load, data surviving a reload, broken JSON, wrong data shapes, storage that throws errors, no storage at all, reset |
 | `mistakes.test.js` | Saving mistakes, repeated mistakes, newest-first order, filter, mastering, review session, delete and clear |
 | `similar.test.js` | All 12 operation/level pairs: same operation and difficulty, never the original question, spec ranges, close numbers, 5 different questions per set, the smallest case (2 − 1) |
+| `router.test.js` | Every route, small differences in the address (`#/STATS`, `#/stats/`), unknown routes going to Home, same-route navigation |
 | `stats.test.js` | Totals, accuracy by operation and difficulty, mistake counts, last 10 sessions, empty and broken data. Every expected value is worked out by hand in the test (for example 13/18 = 72%, 9/11 = 82%) |
 
 **Browser checks by the agent.** After each phase the agent used the real app in a built-in browser at phone width (360px and 375px). It checked the results with small scripts: progress labels, counts, the summary percentage, the data saved in localStorage, no horizontal scroll, and button heights.

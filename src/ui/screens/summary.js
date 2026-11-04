@@ -1,31 +1,33 @@
-import { summarize, friendlyMessage } from '../../logic/session.js';
+import { accuracy, friendlyMessage } from '../../logic/session.js';
 
-export function renderSummary(root, { go, session }) {
-  const s = summarize(session);
+// `record` is a saved session record (see toSessionRecord), so the summary also works after a refresh.
+export function renderSummary(root, { go, record, store }) {
+  const acc = accuracy(record.correct, record.attempted);
   root.innerHTML = `
-    <h1>${s.completed ? 'All done!' : 'Good practice!'}</h1>
+    <h1>${record.completed ? 'All done!' : 'Good practice!'}</h1>
     <section class="card summary" aria-label="Session summary">
-      ${s.completed ? '' : '<p class="tag">Stopped early</p>'}
-      <p class="big-score">${s.accuracy}%</p>
-      <p class="message">${friendlyMessage(s.accuracy)}</p>
+      ${record.completed ? '' : '<p class="tag">Stopped early</p>'}
+      <p class="big-score">${acc}%</p>
+      <p class="message">${friendlyMessage(acc)}</p>
       <dl class="stats-list">
-        <div><dt>Questions answered</dt><dd>${s.attempted}</dd></div>
-        <div><dt>Correct</dt><dd>${s.correct}</dd></div>
-        <div><dt>Incorrect</dt><dd>${s.incorrect}</dd></div>
+        <div><dt>Questions answered</dt><dd>${record.attempted}</dd></div>
+        <div><dt>Correct</dt><dd>${record.correct}</dd></div>
+        <div><dt>Incorrect</dt><dd>${record.incorrect}</dd></div>
       </dl>
     </section>
     <div class="card-actions">
       <button type="button" class="btn" id="again">Practice Again</button>
-      ${s.incorrect > 0 ? '<button type="button" class="btn btn-wrong" id="review">Review Mistakes</button>' : ''}
+      ${record.incorrect > 0 ? '<button type="button" class="btn btn-wrong" id="review">Review Mistakes</button>' : ''}
       <button type="button" class="btn btn-secondary" id="home">Home</button>
     </div>
   `;
-  const settings = { operations: session.operations, difficulty: session.difficulty, count: session.count };
-  // A review session cannot be repeated with the same settings, so go back to the Mistakes page.
   root.querySelector('#again').addEventListener('click', () => {
-    if (session.type === 'review') go('mistakes');
-    else if (session.type === 'similar') go('similar', { mistake: session.sourceMistake });
-    else go('practice', settings);
+    if (record.type === 'review') return go('mistakes');
+    if (record.type === 'similar') {
+      const mistake = store.getData().mistakes.find((m) => m.id === record.sourceMistakeId);
+      return mistake ? go('similar', { mistake }) : go('mistakes');
+    }
+    go('practice', { operations: record.operations, difficulty: record.difficulty, count: record.count });
   });
   root.querySelector('#review')?.addEventListener('click', () => go('mistakes'));
   root.querySelector('#home').addEventListener('click', () => go('home'));

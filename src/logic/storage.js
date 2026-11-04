@@ -84,6 +84,7 @@ export function toSessionRecord(session, completed) {
     byOperation,
     byDifficulty,
     completed,
+    sourceMistakeId: session.sourceMistake?.id ?? null,
   };
 }
 
