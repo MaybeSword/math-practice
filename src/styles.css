@@ -1,0 +1,78 @@
+:root {
+  --bg: #fff8e7;
+  --text: #2b2140;
+  --card: #ffffff;
+  --primary: #5b3cc4;
+  --primary-text: #ffffff;
+  --choice: #e9f4ff;
+  --choice-border: #7ab8f5;
+  --selected: #ffd84d;
+  --green: #1f8a4c;
+  --green-bg: #d8f7e3;
+  --red: #c62828;
+  --red-bg: #ffe1e1;
+  --orange: #a84f00;
+  --orange-bg: #fff0dc;
+  --radius: 20px;
+  font-family: 'Nunito', 'Arial Rounded MT Bold', 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-size: 1.125rem; }
+#app { max-width: 720px; margin: 0 auto; padding: 16px; }
+h1 { color: var(--primary); text-align: center; }
+button { font: inherit; }
+button:focus-visible { outline: 4px solid #1b6fd1; outline-offset: 3px; }
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: clamp(16px, 4vw, 32px);
+  box-shadow: 0 6px 0 #e6dcc4, 0 10px 24px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+.card-question { font-size: clamp(2rem, 9vw, 3.5rem); font-weight: 800; margin: 0 0 20px; }
+.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.choice {
+  min-height: 64px; font-size: clamp(1.4rem, 6vw, 2rem); font-weight: 700;
+  background: var(--choice); color: var(--text);
+  border: 3px solid var(--choice-border); border-radius: 16px; cursor: pointer;
+}
+.choice[aria-pressed='true'] { background: var(--selected); border-color: #c9a100; }
+.choice:disabled { cursor: default; opacity: 0.6; }
+.choice.is-correct { background: var(--green-bg); border-color: var(--green); color: var(--green); opacity: 1; }
+.choice.is-wrong { background: var(--red-bg); border-color: var(--red); color: var(--red); opacity: 1; }
+.choice.is-correct::after { content: ' ✓'; }
+.choice.is-wrong::after { content: ' ✗'; }
+
+.card-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 20px; }
+.btn {
+  min-height: 56px; min-width: 48px; padding: 0 24px; flex: 1 1 200px; max-width: 320px;
+  font-size: 1.25rem; font-weight: 800; border: none; border-radius: 999px; cursor: pointer;
+  background: var(--primary); color: var(--primary-text);
+}
+.btn-right { background: var(--green); }
+.btn-wrong { background: var(--orange); }
+.card-feedback { min-height: 1.6em; font-size: 1.4rem; font-weight: 800; margin: 16px 0 0; }
+
+/* Reveal: a quick flip. */
+.card.revealed { animation: flip 0.45s ease; }
+@keyframes flip { 0% { transform: perspective(800px) rotateY(0); } 50% { transform: perspective(800px) rotateY(90deg); } 100% { transform: perspective(800px) rotateY(0); } }
+
+/* Correct: green glow, bounce, and a popping star. */
+.card.result-right { box-shadow: 0 6px 0 var(--green), 0 0 0 4px var(--green-bg); animation: bounce 0.6s ease; }
+.card.result-right .card-feedback { color: var(--green); animation: pop 0.5s ease; }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 30% { transform: translateY(-14px); } 60% { transform: translateY(0); } 80% { transform: translateY(-5px); } }
+@keyframes pop { 0% { transform: scale(0.4); opacity: 0; } 70% { transform: scale(1.2); opacity: 1; } 100% { transform: scale(1); } }
+
+/* Wrong: soft orange and a gentle sway (never harsh). */
+.card.result-wrong { box-shadow: 0 6px 0 #f0b36b, 0 0 0 4px var(--orange-bg); animation: sway 0.7s ease; }
+.card.result-wrong .card-feedback { color: var(--orange); }
+@keyframes sway { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-1.5deg); } 75% { transform: rotate(1.5deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Phase 1 generator test controls */
+.dev-controls { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 16px; }
+.dev-controls select { font: inherit; min-height: 48px; padding: 0 8px; border-radius: 12px; }

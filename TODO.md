@@ -15,14 +15,14 @@ Rules: one phase at a time; test by hand; commit per phase; mark finished tasks 
 - [x] Write unit tests for the generator (all operations, all levels).
 
 ## Phase 2: Question Card
-- [ ] Build the card component: question text and 4 choices.
-- [ ] Let the user tap a choice to select it.
-- [ ] Add the "Show Answer" button and the flip or reveal effect.
-- [ ] Highlight the correct choice green and a wrong pick red.
-- [ ] Add the "I got it right" and "I got it wrong" buttons after the reveal.
-- [ ] Add a "Next" action after a result is recorded.
-- [ ] Add a correct-answer animation and a gentle wrong-answer animation.
-- [ ] Respect `prefers-reduced-motion`.
+- [x] Build the card component: question text and 4 choices.
+- [x] Let the user tap a choice to select it.
+- [x] Add the "Show Answer" button and the flip or reveal effect.
+- [x] Highlight the correct choice green and a wrong pick red.
+- [x] Add the "I got it right" and "I got it wrong" buttons after the reveal.
+- [x] Add a "Next" action after a result is recorded.
+- [x] Add a correct-answer animation and a gentle wrong-answer animation.
+- [x] Respect `prefers-reduced-motion`.
 
 ## Phase 3: Practice Session
 - [ ] Build the setup screen: operations, difficulty, question count.
