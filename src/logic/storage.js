@@ -55,13 +55,18 @@ export function isStorageAvailable(storage) {
 // Turn an in-progress or finished session into the record we save.
 export function toSessionRecord(session, completed) {
   const byOperation = {};
+  const byDifficulty = {};
   let correct = 0;
   for (const r of session.results) {
     const op = r.question.operation;
+    const diff = r.question.difficulty;
     byOperation[op] ??= { attempted: 0, correct: 0 };
+    byDifficulty[diff] ??= { attempted: 0, correct: 0 };
     byOperation[op].attempted++;
+    byDifficulty[diff].attempted++;
     if (r.correct) {
       byOperation[op].correct++;
+      byDifficulty[diff].correct++;
       correct++;
     }
   }
@@ -77,6 +82,7 @@ export function toSessionRecord(session, completed) {
     correct,
     incorrect: attempted - correct,
     byOperation,
+    byDifficulty,
     completed,
   };
 }

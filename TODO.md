@@ -60,14 +60,14 @@ Rules: one phase at a time; test by hand; commit per phase; mark finished tasks 
 - [x] Write unit tests for `generateSimilar`.
 
 ## Phase 7: Statistics Page
-- [ ] Write `src/logic/stats.js` that calculates all values from stored sessions.
-- [ ] Show total attempted, correct, incorrect, and overall accuracy.
-- [ ] Show accuracy by operation and by difficulty.
-- [ ] Show active and mastered mistake counts.
-- [ ] Show the last 10 sessions.
-- [ ] Add the empty state with a "Start Practicing" button.
-- [ ] Add "Reset all data" with confirm.
-- [ ] Write unit tests for the statistics calculations (check accuracy by hand).
+- [x] Write `src/logic/stats.js` that calculates all values from stored sessions.
+- [x] Show total attempted, correct, incorrect, and overall accuracy.
+- [x] Show accuracy by operation and by difficulty.
+- [x] Show active and mastered mistake counts.
+- [x] Show the last 10 sessions.
+- [x] Add the empty state with a "Start Practicing" button.
+- [x] Add "Reset all data" with confirm.
+- [x] Write unit tests for the statistics calculations (check accuracy by hand).
 
 ## Phase 8: Navigation and Routing
 - [ ] Add a hash router for `#/`, `#/setup`, `#/practice`, `#/summary`, `#/mistakes`, `#/stats`.

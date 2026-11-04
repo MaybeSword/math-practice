@@ -5,6 +5,7 @@ import { renderSetup } from './ui/screens/setup.js';
 import { renderPractice } from './ui/screens/practice.js';
 import { renderSummary } from './ui/screens/summary.js';
 import { renderMistakes } from './ui/screens/mistakes.js';
+import { renderStats } from './ui/screens/stats.js';
 import { createStore } from './logic/storage.js';
 import { createReviewSession, createSimilarSession } from './logic/session.js';
 
@@ -44,6 +45,8 @@ function go(screen, data = {}) {
       return renderPractice(app, { go, session: createReviewSession(data.mistakes), store });
     case 'similar':
       return renderPractice(app, { go, session: createSimilarSession(data.mistake), store });
+    case 'stats':
+      return renderStats(app, { go, store });
     case 'mistakes':
       return renderMistakes(app, { go, store });
     default:

@@ -130,3 +130,33 @@ legend { font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
   .mistake-main { flex-basis: 100%; }
   .mistake .btn-small { flex: 1; }
 }
+
+/* Stats */
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 16px; }
+.tile { background: var(--choice); border-radius: 16px; padding: 14px 8px; text-align: center; display: flex; flex-direction: column; font-weight: 700; }
+.tile-num { font-size: 2.2rem; font-weight: 900; }
+.tile-green { background: var(--green-bg); color: var(--green); }
+.tile-orange { background: var(--orange-bg); color: var(--orange); }
+.tile-purple { background: #ece6ff; color: var(--primary); }
+.stat-card { text-align: left; margin-bottom: 16px; }
+.stat-card h2 { margin: 0 0 12px; font-size: 1.4rem; }
+.stat-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.stat-row-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 12px; font-weight: 700; }
+.meter { height: 14px; background: #ece4d2; border-radius: 999px; overflow: hidden; margin-top: 6px; }
+.meter-fill { height: 100%; background: linear-gradient(90deg, #34c27a, #1f8a4c); border-radius: 999px; }
+.mistake-counts { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 1.2rem; margin: 0; }
+.table-wrap { overflow-x: auto; }
+.history { width: 100%; border-collapse: collapse; font-size: 1rem; }
+.history th, .history td { padding: 8px 6px; text-align: left; border-bottom: 2px solid #f0eadb; white-space: nowrap; }
+.history th { font-size: 0.9rem; color: #5a5070; }
+.mini-tag { display: inline-block; font-size: 0.8rem; font-weight: 800; background: var(--orange-bg); color: var(--orange); padding: 2px 8px; border-radius: 999px; }
+.btn-danger { background: var(--red); }
+@media (max-width: 480px) {
+  .history thead { display: none; }
+  .history, .history tbody, .history tr, .history td { display: block; width: 100%; }
+  .history tr { padding: 8px 0; border-bottom: 2px solid #f0eadb; }
+  .history td { border: none; padding: 2px 0; white-space: normal; }
+  .history td:nth-child(3)::before { content: 'Level: '; color: #5a5070; }
+  .history td:nth-child(4)::before { content: 'Score: '; color: #5a5070; }
+  .history td:nth-child(5)::before { content: 'Accuracy: '; color: #5a5070; }
+}
