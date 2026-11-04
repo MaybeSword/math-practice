@@ -25,14 +25,14 @@ Rules: one phase at a time; test by hand; commit per phase; mark finished tasks 
 - [x] Respect `prefers-reduced-motion`.
 
 ## Phase 3: Practice Session
-- [ ] Build the setup screen: operations, difficulty, question count.
-- [ ] Add the Mixed option.
-- [ ] Build the session flow with a progress bar ("Question X of N").
-- [ ] Avoid repeated questions in one session.
-- [ ] Count attempted, correct, and incorrect answers.
-- [ ] Add the "Quit" button with a confirm message.
-- [ ] Build the summary screen with score, accuracy, and a friendly message.
-- [ ] Add "Practice Again", "Review Mistakes", and "Home" buttons.
+- [x] Build the setup screen: operations, difficulty, question count.
+- [x] Add the Mixed option.
+- [x] Build the session flow with a progress bar ("Question X of N").
+- [x] Avoid repeated questions in one session.
+- [x] Count attempted, correct, and incorrect answers.
+- [x] Add the "Quit" button with a confirm message.
+- [x] Build the summary screen with score, accuracy, and a friendly message.
+- [x] Add "Practice Again", "Review Mistakes", and "Home" buttons.
 
 ## Phase 4: Data Persistence
 - [ ] Write `src/logic/storage.js` for the `mathpractice.v1` key.

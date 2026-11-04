@@ -1,36 +1,31 @@
-// Temporary demo page: generator test controls (Phase 1) + question card (Phase 2).
-// Real screens and routing come in later phases.
+// App start. Simple screen switching for now; the hash router comes in Phase 8.
 import './styles.css';
-import { generateQuestion } from './logic/generator.js';
-import { OPERATIONS, DIFFICULTIES } from './logic/ranges.js';
-import { createCard } from './ui/card.js';
+import { renderHome } from './ui/screens/home.js';
+import { renderSetup } from './ui/screens/setup.js';
+import { renderPractice } from './ui/screens/practice.js';
+import { renderSummary } from './ui/screens/summary.js';
+import { renderMistakes } from './ui/screens/mistakes.js';
 
 const app = document.querySelector('#app');
-app.innerHTML = `
-  <h1>Math Practice</h1>
-  <div class="dev-controls">
-    <label>Operation <select id="op">${OPERATIONS.map((o) => `<option>${o}</option>`).join('')}</select></label>
-    <label>Difficulty <select id="diff">${DIFFICULTIES.map((d) => `<option>${d}</option>`).join('')}</select></label>
-  </div>
-  <div id="card-slot"></div>
-  <p id="tally" style="text-align:center"></p>
-`;
 
-let right = 0;
-let wrong = 0;
+// Last used setup (kept in memory; saved to localStorage in Phase 4).
+let lastSettings = { operations: ['addition'], difficulty: 'easy', count: 10 };
 
-function showCard() {
-  const q = generateQuestion(app.querySelector('#op').value, app.querySelector('#diff').value);
-  const card = createCard(q, {
-    onResult: ({ correct }) => {
-      correct ? right++ : wrong++;
-      app.querySelector('#tally').textContent = `Right: ${right} · Wrong: ${wrong}`;
-    },
-    onNext: showCard,
-  });
-  app.querySelector('#card-slot').replaceChildren(card);
+function go(screen, data = {}) {
+  window.scrollTo(0, 0);
+  switch (screen) {
+    case 'setup':
+      return renderSetup(app, { go, defaults: lastSettings });
+    case 'practice':
+      lastSettings = data;
+      return renderPractice(app, { go, settings: data });
+    case 'summary':
+      return renderSummary(app, { go, session: data.session });
+    case 'mistakes':
+      return renderMistakes(app, { go });
+    default:
+      return renderHome(app, { go });
+  }
 }
 
-app.querySelector('#op').onchange = showCard;
-app.querySelector('#diff').onchange = showCard;
-showCard();
+go('home');
