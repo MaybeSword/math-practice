@@ -1,6 +1,6 @@
 # Math Practice App: Development Report
 
-**Student:** [YOUR NAME] · **Course:** [COURSE] · **Date:** [DATE]  
+**Student:** Kris Rimal · **Course:** CSE 4095 · **Date:** November 4, 2026  
 **GitHub:** https://github.com/MaybeSword/math-practice · **Live app:** https://incredible-jalebi-1367a4.netlify.app
 
 ## 1. Development approach
