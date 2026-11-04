@@ -1,43 +1,42 @@
 # HuskyCT Submission
 
-| # | Deliverable | What to submit | Status |
+| # | Deliverable | Submit | Status |
 |---|---|---|---|
-| 1 | GitHub repository | https://github.com/MaybeSword/math-practice | ✅ Public, all commits pushed, full README |
-| 2 | Deployed application | https://incredible-jalebi-1367a4.netlify.app | ✅ Deployed from GitHub, tested live |
-| 3 | Development report | `docs/DEVELOPMENT_REPORT.md` → export to PDF/Word | Draft done through Phase 11. Fill in the [brackets]. |
-| 4 | AI conversation evidence | `docs/AI_CONVERSATION_EVIDENCE.md` + exported transcript + screenshots | Draft done, includes the Phase 10 bug. |
+| 1 | GitHub repository + README | https://github.com/MaybeSword/math-practice | ✅ Public. The README covers install, run locally, tests, build, and deploy |
+| 2 | Deployed application | https://incredible-jalebi-1367a4.netlify.app | ✅ Works with no install and no account. Tested live, including a refresh on every route |
+| 3 | Development report (2–3 pages) | `submission/Development_Report.pdf` (or `.docx` to edit) | ⚠️ 3 pages. Fill in the 4 placeholders below first |
+| 4 | AI conversation evidence | `submission/AI_Conversation_Evidence.pdf` + exported transcript | ✅ Includes the initial request, feature refinements, debugging, and screenshots |
+| – | Extra (optional) | `submission/Bug_Reports.pdf` | ✅ 3 bug reports with steps, expected, actual, root cause, fix, and verification |
 
-## App status
-All features from the specification are built (Phases 1–10). The live site was tested: every feature, a refresh on every route, saved data, and phone size.
+## What the assignment asks for, checked
 
-## Still to do (you)
-- [ ] Fill in the `[brackets]` in the report (name, course, date, your manual tests, "What I learned").
-- [ ] Export the report to PDF or Word (about 2–3 pages).
-- [ ] Export this conversation's transcript and attach it to the AI evidence document.
+**Deliverable 1:** repository link ✅ · README explains installing dependencies ✅, running locally ✅, and building for deployment ✅
+
+**Deliverable 2:** public URL ✅ · the instructor can test it without installing software ✅ or creating an account ✅
+
+**Deliverable 3:** the report covers
+1. Development approach, including whether the TODO list was followed exactly ✅
+2. Prompting strategy with 3 effective prompts ✅
+3. Debugging: the problem, how it was communicated, and how it was verified ✅
+4. Testing ✅
+5. Reflection on strengths and limitations ✅ (your "What I learned" sentences are still needed)
+
+Screenshots and short excerpts are included where useful ✅
+
+**Deliverable 4:** initial implementation request ✅ · feature implementation or refinement ✅ · debugging or testing interaction ✅
+
+## Still to do (only you can do these)
+
+In `docs/DEVELOPMENT_REPORT.md` (or directly in `submission/Development_Report.docx`):
+- [ ] Line 3: your **name, course, and date**
+- [ ] Section 4, "My own checks": what **you** tested by hand (for example your real phone, keyboard only, reduced motion)
+- [ ] Section 5, "What I learned": **2–4 sentences in your own words**
+- [ ] Section 3: delete the `[OPTIONAL …]` line, or report a bug yourself and add it
+
+Then:
+- [ ] Re-export the PDF. Either ask Claude to "re-export the submission files", or in Word use *File → Save As → PDF*.
+- [ ] Export this conversation's transcript (Claude app: session menu → Export) and attach it to Deliverable 4.
 - [ ] Open the live URL on your **real phone** once.
+- [ ] Upload to HuskyCT: the two links and the PDFs.
 
-## Deliverable 1: push to GitHub
-```bash
-gh repo create math-practice --public --source=. --remote=origin --push
-```
-Or create an empty repo on github.com, then:
-```bash
-git remote add origin https://github.com/YOUR-NAME/math-practice.git
-git push -u origin main
-```
-Check: no `.env`, no keys, `node_modules` and `dist` not committed (both are in `.gitignore`).
-
-## Deliverable 2: deploy on Netlify
-1. app.netlify.com → **Add new site → Import an existing project → GitHub** → pick `math-practice`.
-2. Build command `npm run build` and publish directory `dist` are read from `netlify.toml`.
-3. Deploy, then open the URL **in a private window and on your phone**. Test every screen, refresh on each one, and check that data stays after a refresh.
-
-## Deliverables 3 and 4: screenshots to take
-- Phase 1 test page (or the final setup screen)
-- A question card after a right answer and after a wrong answer, at phone width
-- The summary screen
-- The Mistakes page with the filter in use
-- The Statistics page (after Phase 7)
-- `npm test` output showing every test passing
-- `git log --oneline` showing one commit per phase
-- Your bug report message and the fix (Phase 10)
+Note: the Word (`.docx`) copies are for editing text. They may not show the screenshots, so submit the **PDFs**.

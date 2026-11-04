@@ -105,6 +105,6 @@ Rules: one phase at a time; test by hand; commit per phase; mark finished tasks 
 ## Phase 12: Submission Package
 - [x] GitHub repository link. https://github.com/MaybeSword/math-practice
 - [x] Public Netlify URL. https://incredible-jalebi-1367a4.netlify.app
-- [ ] Development report (2 to 3 pages).
-- [ ] AI conversation evidence: initial request, one feature refinement, one debugging interaction.
-- [ ] Check the submission checklist in the assignment.
+- [x] Development report (2 to 3 pages). docs/DEVELOPMENT_REPORT.md → submission/Development_Report.pdf (fill in name, own checks, "What I learned")
+- [x] AI conversation evidence: initial request, one feature refinement, one debugging interaction. submission/AI_Conversation_Evidence.pdf (+ export the transcript)
+- [x] Check the submission checklist in the assignment. (docs/SUBMISSION.md)
