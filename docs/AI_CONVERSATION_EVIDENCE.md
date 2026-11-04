@@ -1,0 +1,106 @@
+# AI Conversation Evidence
+
+Tool: Claude Code (Claude desktop app, Code tab). These are selected excerpts from the real conversation. Agent replies are shortened (marked …).
+For the full record, export the session transcript and attach it, along with screenshots of the moments below.
+
+---
+
+## 1. Initial implementation request
+
+### 1a. Planning prompt (no code yet)
+
+**Me:**
+> Read specification.md and TODO.md fully. Do not write code yet. Tell me: (1) a short summary of the app, (2) the tech stack you suggest (plain HTML/CSS/JS or Vite + React; it must deploy to Netlify as a static site), (3) the folder structure, (4) any unclear points in the specification. Wait for my answer.
+
+**Agent (excerpt):**
+> **Vite + vanilla JavaScript (ES modules), with Vitest for tests.** The spec (§3) and Phase 1 both ask for vanilla Vite, so I suggest not using React. …
+>
+> 1. **"Mixed" and the operation choice.** If the child picks several operations, is that already mixed? …
+> 2. **Self-marking and the picked choice.** … What happens if the child picked the wrong choice but presses "I got it right"? …
+> 3. **Is review counted in stats?** …
+> (13 points in total)
+
+### 1b. First implementation prompt
+
+**Me:**
+> Implement Phase 1 from TODO.md. Follow specification.md. Keep the code simple and split into small files. When done: run the app, check that it works, and mark finished tasks in TODO.md. Then tell me how to run it and what I should test by hand.
+
+**Agent (excerpt):**
+> Phase 1 is finished and committed as `Phase 1: project setup and question generator`. All 71 unit tests pass and the production build works. …
+> **What to test by hand**
+> 1. Open the page and pick each operation with each level. …
+
+Result: commit `37a622f`. [Screenshot: the Phase 1 test page with a question and 4 choices]
+
+---
+
+## 2. Feature implementation / refinement
+
+**Me (sent during Phase 1):**
+> The question cards must work on phones and tablets. Make the layout responsive for widths from 360px to 1200px. Use large buttons, bright colors, and a friendly font for children ages 7 to 12. Add a short animation for a correct answer and a gentle one for a wrong answer.
+
+**Agent:**
+> The card and responsive layout request belongs to Phases 2 and 9 … I'll finish Phase 1 first, as your rules ask.
+
+**Me:** `Start Phase 2`
+
+**Agent (excerpt):**
+> - Right answer: the card bounces, a ⭐ pops in, and the card shows a happy message.
+> - Wrong answer: the card sways gently in soft orange and shows a kind message.
+> - All animations turn off when the device's "reduce motion" setting is on.
+>
+> **What I checked in the browser**
+> - I tested a wrong pick marked wrong and a right pick marked right, at 360px and 375px wide. …
+> - There was no horizontal scroll, and the smallest button was 56px tall.
+
+Result: commit `c3a1732`. [Screenshot: the card at 360px after a right answer — green 50 ✓ and the Next button]
+
+Other feature phases used the same prompt: "Start Phase 3", "Start Phase 4", "Start Phase 5" (commits `60e991f`, `9446422`, `2fd02ad`).
+
+---
+
+## 3. Debugging / testing interaction
+
+### 3a. Investigating a suspected bug before changing code (Phase 3)
+
+While checking the practice screen, the progress bar looked nearly empty after 1 of 5 answers.
+
+**Agent:**
+> The progress bar looks almost empty after 1 of 5 answers. I'll check whether that is the 0.3-second animation or a real bug.
+
+Check run in the page:
+```
+{ "style": "20%", "px": 65.6, "bar": 328 }
+```
+
+**Agent:**
+> The bar is at 20%, which is correct. The screenshot was taken while the fill was still animating.
+
+[Screenshot: the practice screen "Question 2 of 5"]
+
+### 3b. Testing storage with broken data (Phase 4)
+
+The agent put broken JSON into localStorage on purpose and reloaded the app:
+```js
+localStorage.setItem('mathpractice.v1', '{broken json!!'); location.reload();
+```
+**Agent:**
+> Broken JSON is handled: the app starts empty, uses the default setup, and saves cleanly again.
+
+Unit test result after Phase 5:
+```
+ Test Files  4 passed (4)
+      Tests  102 passed (102)
+```
+
+### 3c. [ADD in Phase 10: your own bug report]
+
+**Me:**
+> Bug: [title]
+> Steps to reproduce: 1) … 2) … 3) …
+> Expected: … Actual: … Browser and screen size: …
+> Find the root cause first. Explain it in two sentences. Then fix it. Then tell me how to confirm the fix.
+
+**Agent:** [root cause + fix + how to confirm]
+
+[Screenshots: before and after]
