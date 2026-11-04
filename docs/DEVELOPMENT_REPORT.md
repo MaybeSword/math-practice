@@ -3,7 +3,7 @@
 **Student:** [YOUR NAME] · **Course:** [COURSE] · **Date:** [DATE]
 **GitHub:** [GITHUB URL] · **Live app:** [NETLIFY URL]
 
-> Draft written from what really happened in this project up to Phase 9.
+> Draft written from what really happened in this project up to Phase 10.
 > Text in [square brackets] is for you to fill in or update after the remaining phases.
 
 ## 1. Development approach
@@ -20,6 +20,7 @@ c3a1732 Phase 2: add question cards
 25678d7 Phase 7: add statistics page
 05c21dc Phase 8: add hash routing and navigation bar
 a6010c5 Phase 9: child-friendly UI, contrast, and accessibility
+[Phase 10 commit] Phase 10: testing and bug fixes
 [add later phases]
 ```
 
@@ -51,7 +52,9 @@ This prompt gives measurable targets (360–1200px, large buttons) and the audie
 
 ## 3. Debugging experience
 
-[REPLACE OR ADD: a bug you find yourself during Phase 10, written with the bug template — title, steps, expected, actual, browser and screen size — plus the agent's root-cause explanation and how you confirmed the fix.]
+**Main bug: double-tapping "Show Answer" recorded a result (Phase 10).** I asked the agent to test with *real* clicks, not only scripts. A real double-click on "Show Answer" recorded **"I got it right"** by itself: "Super star!", score ✅ 1, saved as `1/1`. The child never chose. It was written up as a bug report (steps, expected, actual, browser and screen size) in `docs/BUG_REPORTS.md`. **Root cause:** "I got it right" appears in exactly the spot where "Show Answer" was, so the second tap lands on it. **Fix:** new action buttons ignore clicks for 400 ms after they appear. **Verification:** the same real double-click then showed both buttons with the score still 0 and nothing saved, a normal tap still recorded correctly, and all unit tests passed. Before and after screenshots are in `docs/screenshots/bug1-double-tap-*.jpg`. Scripted tests had missed this bug, because a script clicks each button exactly once.
+
+[OPTIONAL: add a bug you found yourself, with your bug-template message and how you confirmed the fix.]
 
 Problems that really came up during development:
 
@@ -89,7 +92,14 @@ Problems that really came up during development:
 
 **Manual tests by me.** [Describe what you tested by hand from each phase's list: the phone/tablet/desktop sizes, keyboard use, reduced motion, refresh, private window. Add screenshots.]
 
-**Meeting the requirements.** [After Phase 10: go through the manual checklist in TODO.md and say which items pass.]
+**Meeting the requirements (Phase 10).** The whole manual checklist was run through the real app UI:
+- **240 question cards**: every operation × every level × 20 questions. All followed the ranges in spec §4, had 4 unique choices with exactly one correct, had no negative or non-whole answers, and had no repeats within a session.
+- The green and red highlights were right every time, and every summary matched the expected count.
+- The stats page matched the hand-calculated totals: 240 answered, 156 correct, 65%, and 39/60 for each operation.
+- The data was still there after a refresh. Filtering, review (20 mistakes mastered) and similar questions all worked.
+- Navigation, Back/Forward and a refresh on every route were checked in Phase 8.
+
+All 11 checklist items passed. The only problem found was the double-tap bug above, which is now fixed.
 
 ## 5. Reflection
 

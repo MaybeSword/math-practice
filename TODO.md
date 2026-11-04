@@ -86,10 +86,10 @@ Rules: one phase at a time; test by hand; commit per phase; mark finished tasks 
 - [x] Test on a phone, a tablet size, and a desktop. (emulated 360/768/1200 — still test on a real phone)
 
 ## Phase 10: Testing and Bug Fixing
-- [ ] Run all unit tests. All must pass.
-- [ ] Complete the manual checklist (operations, ranges, choices, card, counts, summary, mistakes, similar, stats, refresh, navigation).
-- [ ] Write each bug found as a bug report (steps, expected, actual) and fix it with the agent.
-- [ ] Save screenshots of bug reports and fixes for the report.
+- [x] Run all unit tests. All must pass.
+- [x] Complete the manual checklist (operations, ranges, choices, card, counts, summary, mistakes, similar, stats, refresh, navigation).
+- [x] Write each bug found as a bug report (steps, expected, actual) and fix it with the agent. (see docs/BUG_REPORTS.md)
+- [x] Save screenshots of bug reports and fixes for the report. (docs/screenshots/)
 
 ## Phase 11: Git, README, and Deployment
 - [ ] Check that the Git history has one commit per phase.

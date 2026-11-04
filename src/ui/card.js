@@ -7,6 +7,17 @@ const HAPPY = ['Great job!', 'You got it!', 'Super star!', 'Awesome!'];
 const KIND = ['Nice try! Keep going.', 'Almost! You will get it next time.', 'Good effort! Practice makes progress.'];
 const pickOne = (list) => list[Math.floor(Math.random() * list.length)];
 
+// New buttons appear where the old button was. A double-tap (or a held Enter key)
+// would "click" the new button too, so ignore clicks for a short time after it appears.
+export const CLICK_GUARD_MS = 400;
+function onSafeClick(button, handler, now = () => performance.now()) {
+  const shownAt = now();
+  button.addEventListener('click', () => {
+    if (now() - shownAt < CLICK_GUARD_MS) return;
+    handler();
+  });
+}
+
 export function createCard(question, { onResult = () => {}, onNext = () => {} } = {}) {
   const el = document.createElement('section');
   el.className = 'card';
@@ -56,8 +67,8 @@ export function createCard(question, { onResult = () => {}, onNext = () => {} } 
       <button type="button" class="btn btn-right">I got it right</button>
       <button type="button" class="btn btn-wrong">I got it wrong</button>
     `;
-    actions.querySelector('.btn-right').addEventListener('click', () => record(true));
-    actions.querySelector('.btn-wrong').addEventListener('click', () => record(false));
+    onSafeClick(actions.querySelector('.btn-right'), () => record(true));
+    onSafeClick(actions.querySelector('.btn-wrong'), () => record(false));
     actions.querySelector('.btn-right').focus();
   });
 
@@ -66,7 +77,7 @@ export function createCard(question, { onResult = () => {}, onNext = () => {} } 
     feedback.textContent = correct ? `⭐ ${pickOne(HAPPY)}` : pickOne(KIND);
     actions.innerHTML = `<button type="button" class="btn btn-next">Next</button>`;
     const next = actions.querySelector('.btn-next');
-    next.addEventListener('click', () => onNext());
+    onSafeClick(next, () => onNext());
     next.focus();
     onResult({ question, picked, correct });
   }

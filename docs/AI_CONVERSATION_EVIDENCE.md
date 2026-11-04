@@ -93,7 +93,20 @@ Unit test result after Phase 5:
       Tests  102 passed (102)
 ```
 
-### 3c. [ADD in Phase 10: your own bug report]
+### 3c. Bug found by real double-click testing (Phase 10)
+
+**Me:** `Start Phase 10`
+
+**Agent (excerpt):**
+> **Bug found:** a double-click on "Show Answer" records **"I got it right"** by itself. The saved session shows `1/1` even though the child never chose a result.
+>
+> Root cause: "I got it right" appears in exactly the spot where "Show Answer" was. The second tap of a double-tap lands on the new button and records a result the child never chose. … The fix is to ignore clicks on newly shown result and Next buttons for a short moment (400 ms).
+>
+> Fixed. After the double-click, both result buttons are waiting and nothing was recorded.
+
+Screenshots: `screenshots/bug1-double-tap-before.jpg`, `screenshots/bug1-double-tap-after.jpg`. Full report: `BUG_REPORTS.md`.
+
+### 3d. [OPTIONAL: your own bug report]
 
 **Me:**
 > Bug: [title]
