@@ -3,7 +3,7 @@
 **Student:** [YOUR NAME] · **Course:** [COURSE] · **Date:** [DATE]
 **GitHub:** [GITHUB URL] · **Live app:** [NETLIFY URL]
 
-> Draft written from what really happened in this project up to Phase 5.
+> Draft written from what really happened in this project up to Phase 6.
 > Text in [square brackets] is for you to fill in or update after the remaining phases.
 
 ## 1. Development approach
@@ -16,6 +16,7 @@ c3a1732 Phase 2: add question cards
 60e991f Phase 3: add practice sessions
 9446422 Phase 4: save sessions and settings in localStorage
 2fd02ad Phase 5: add mistake tracking and review
+[Phase 6 commit] Phase 6: add similar questions
 [add later phases]
 ```
 
@@ -59,13 +60,15 @@ Problems that really came up during development:
 
 65.6 / 328 = 20%, so the bar was correct. The screenshot had been taken during the bar's 0.3-second fill animation. The lesson: **check the real state before "fixing" something.** A screenshot is only one moment in time.
 
+**Problem: the new "Practice similar" button did not appear (Phase 6).** After I moved the project from a temporary folder to `Downloads/math-practice`, the agent added the button, and all 167 unit tests passed. But in the browser the Mistakes page had no button. The agent did not change the code again. It compared the file on disk (which had the button) with what the dev server actually sent (`curl … | grep -c similar` → `0`). Then it checked which folder each server process was running from. **Root cause:** the dev server was still running from the *old* folder, so the browser loaded old code. **Fix:** stop that server and start Vite from the new folder on its own port (5180). Port 5173 was used by a different project on my computer. **Verification:** the server then sent the new file (`grep -c` → `2`), and a full test showed the button, a 5-question "Similar" session (10 × 4 → 8 × 4, 9 × 4, 10 × 7, 6 × 7, 12 × 3), and the session saved as `similar:5/4/true`. The lesson: when a change "does nothing", check that you are running the code you think you are running.
+
 **Problem: a wrong test result (Phase 1).** In the first browser check, the second line of output showed a subtraction question even though the agent had chosen division. The agent explained the cause: its test script held a reference to a dropdown element that had already been replaced when the page re-rendered. The mistake was in the test script, not in the app. The unit tests (71 passing at that point) confirmed the generator was correct.
 
 **Verifying fixes.** For every phase the agent wrote automated tests for the logic and drove the real app in a browser at 360px. I then did the manual checks it listed. [Add your own verification of your Phase 10 bug here.]
 
 ## 4. Testing
 
-**Automated unit tests (Vitest).** The pure logic is kept separate from the page code so it can be tested. There are currently 102 tests in 4 files, and all pass:
+**Automated unit tests (Vitest).** The pure logic is kept separate from the page code so it can be tested. There are currently 167 tests in 5 files, and all pass:
 
 | File | What it checks |
 |---|---|
@@ -73,6 +76,7 @@ Problems that really came up during development:
 | `session.test.js` | Question count, no repeated questions, Mixed uses only the selected operations, attempted/correct/incorrect counts, accuracy rounding (2/3 → 67%, 0/0 → 0%) |
 | `storage.test.js` | Save and load, data surviving a reload, broken JSON, wrong data shapes, storage that throws errors, no storage at all, reset |
 | `mistakes.test.js` | Saving mistakes, repeated mistakes, newest-first order, filter, mastering, review session, delete and clear |
+| `similar.test.js` | All 12 operation/level pairs: same operation and difficulty, never the original question, spec ranges, close numbers, 5 different questions per set, the smallest case (2 − 1) |
 | [`stats.test.js`] | [Phase 7: accuracy checked by hand] |
 
 **Browser checks by the agent.** After each phase the agent used the real app in a built-in browser at phone width (360px and 375px). It checked the results with small scripts: progress labels, counts, the summary percentage, the data saved in localStorage, no horizontal scroll, and button heights.

@@ -50,6 +50,7 @@ export function renderMistakes(root, { go, store, filter = 'all' }) {
                 ${m.timesWrong > 1 ? ` · Missed ${m.timesWrong} times` : ''}
               </p>
             </div>
+            <button type="button" class="btn-small" data-similar="${m.id}" aria-label="Practice 5 questions similar to ${questionText(m).replace(' = ?', '')}">Practice similar</button>
             <button type="button" class="btn-icon" data-delete="${m.id}" aria-label="Delete mistake ${questionText(m).replace(' = ?', '')}">🗑️</button>
           </li>`).join('')}
       </ul>
@@ -61,6 +62,10 @@ export function renderMistakes(root, { go, store, filter = 'all' }) {
   root.querySelector('[data-go]')?.addEventListener('click', () => go('setup'));
   root.querySelectorAll('[data-filter]').forEach((b) => b.addEventListener('click', () => rerender(b.dataset.filter)));
   root.querySelector('#review')?.addEventListener('click', () => go('review', { mistakes: list }));
+  root.querySelectorAll('[data-similar]').forEach((b) => b.addEventListener('click', () => {
+    const mistake = all.find((m) => m.id === b.dataset.similar);
+    if (mistake) go('similar', { mistake });
+  }));
   root.querySelectorAll('[data-delete]').forEach((b) => b.addEventListener('click', () => {
     if (!window.confirm('Delete this mistake?')) return;
     store.deleteMistake(b.dataset.delete);

@@ -1,6 +1,6 @@
 // Practice session logic (pure, no DOM).
 import { createRandom } from './random.js';
-import { generateQuestion, questionKey } from './generator.js';
+import { generateQuestion, questionKey, generateSimilarSet } from './generator.js';
 import { mistakeToQuestion } from './mistakes.js';
 
 export const QUESTION_COUNTS = [5, 10, 15, 20];
@@ -53,6 +53,23 @@ export function createReviewSession(mistakes, rng = createRandom()) {
     startedAt: new Date().toISOString(),
     id: `s-${Date.now()}-${Math.floor(Math.random() * 1e6)}`,
     type: 'review',
+  };
+}
+
+// Similar-practice session: 5 new questions close to one mistake.
+export const SIMILAR_COUNT = 5;
+export function createSimilarSession(mistake, rng = createRandom()) {
+  return {
+    operations: [mistake.operation],
+    difficulty: mistake.difficulty,
+    count: SIMILAR_COUNT,
+    questions: generateSimilarSet(mistake, SIMILAR_COUNT, rng),
+    index: 0,
+    results: [],
+    startedAt: new Date().toISOString(),
+    id: `s-${Date.now()}-${Math.floor(Math.random() * 1e6)}`,
+    type: 'similar',
+    sourceMistake: mistake,
   };
 }
 

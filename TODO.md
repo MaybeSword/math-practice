@@ -52,12 +52,12 @@ Rules: one phase at a time; test by hand; commit per phase; mark finished tasks 
 - [x] Add the empty state ("No mistakes yet. Great job!").
 
 ## Phase 6: Similar Questions
-- [ ] Write `generateSimilar(mistake)` in the generator module.
-- [ ] Keep the same operation and difficulty. Use close numbers.
-- [ ] Make sure a similar question is never the same as the original.
-- [ ] Add the "Practice similar" button on each mistake.
-- [ ] Run a 5-question similar session and save the result.
-- [ ] Write unit tests for `generateSimilar`.
+- [x] Write `generateSimilar(mistake)` in the generator module.
+- [x] Keep the same operation and difficulty. Use close numbers.
+- [x] Make sure a similar question is never the same as the original.
+- [x] Add the "Practice similar" button on each mistake.
+- [x] Run a 5-question similar session and save the result.
+- [x] Write unit tests for `generateSimilar`.
 
 ## Phase 7: Statistics Page
 - [ ] Write `src/logic/stats.js` that calculates all values from stored sessions.

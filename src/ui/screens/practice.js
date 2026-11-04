@@ -12,7 +12,7 @@ export function renderPractice(root, { go, settings, session: given, store }) {
 
   root.innerHTML = `
     <div class="practice-top">
-      ${session.type === 'review' ? '<p class="tag">Review</p>' : ''}
+      ${session.type === 'review' ? '<p class="tag">Review</p>' : session.type === 'similar' ? '<p class="tag">Similar</p>' : ''}
       <p class="progress-label" id="progress-label"></p>
       <button type="button" class="btn btn-quit" id="quit">Quit</button>
     </div>

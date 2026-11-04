@@ -123,3 +123,10 @@ legend { font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
 .empty { margin-top: 16px; }
 .big-emoji { font-size: 3rem; margin: 0; }
 .center-text { text-align: center; }
+
+.btn-small { flex: 0 0 auto; min-height: 48px; padding: 0 14px; font: inherit; font-size: 0.95rem; font-weight: 800; color: var(--primary); background: #ffffff; border: 3px solid var(--primary); border-radius: 999px; cursor: pointer; }
+@media (max-width: 480px) {
+  .mistake { flex-wrap: wrap; }
+  .mistake-main { flex-basis: 100%; }
+  .mistake .btn-small { flex: 1; }
+}

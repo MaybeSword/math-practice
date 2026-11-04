@@ -6,7 +6,7 @@ import { renderPractice } from './ui/screens/practice.js';
 import { renderSummary } from './ui/screens/summary.js';
 import { renderMistakes } from './ui/screens/mistakes.js';
 import { createStore } from './logic/storage.js';
-import { createReviewSession } from './logic/session.js';
+import { createReviewSession, createSimilarSession } from './logic/session.js';
 
 // localStorage can throw just by being read (e.g. blocked site data), so guard it.
 function getLocalStorage() {
@@ -42,6 +42,8 @@ function go(screen, data = {}) {
       return renderSummary(app, { go, session: data.session });
     case 'review':
       return renderPractice(app, { go, session: createReviewSession(data.mistakes), store });
+    case 'similar':
+      return renderPractice(app, { go, session: createSimilarSession(data.mistake), store });
     case 'mistakes':
       return renderMistakes(app, { go, store });
     default:
