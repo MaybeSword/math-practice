@@ -20,7 +20,7 @@ c3a1732 Phase 2: add question cards
 25678d7 Phase 7: add statistics page
 05c21dc Phase 8: add hash routing and navigation bar
 a6010c5 Phase 9: child-friendly UI, contrast, and accessibility
-[Phase 10 commit] Phase 10: testing and bug fixes
+430e8ea Phase 10: testing and bug fixes
 [add later phases]
 ```
 
