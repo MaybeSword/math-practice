@@ -125,15 +125,3 @@ Evidence it used: `grep -n "similar" src/ui/screens/mistakes.js` found the butto
 > Fixed. After the double-click, both result buttons are waiting and nothing was recorded.
 
 Screenshots: `screenshots/bug1-double-tap-before.jpg`, `screenshots/bug1-double-tap-after.jpg`. Full report: `BUG_REPORTS.md`.
-
-### 3e. [OPTIONAL: your own bug report]
-
-**Me:**
-> Bug: [title]
-> Steps to reproduce: 1) … 2) … 3) …
-> Expected: … Actual: … Browser and screen size: …
-> Find the root cause first. Explain it in two sentences. Then fix it. Then tell me how to confirm the fix.
-
-**Agent:** [root cause + fix + how to confirm]
-
-[Screenshots: before and after]

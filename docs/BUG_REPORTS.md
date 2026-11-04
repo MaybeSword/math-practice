@@ -45,10 +45,3 @@ Screenshots: `screenshots/bug1-double-tap-before.jpg` (wrong "Super star!" after
 **Steps:** Click a nav link, then press Tab. **Expected:** Only the focused control has a focus ring. **Actual:** The page heading also showed a blue box.
 **Root cause:** The CSS rule `[tabindex]:focus-visible` was more specific than `h1:focus`, so the rule meant to hide the box lost.
 **Fix and verification:** Changed the selector to `h1[tabindex]:focus-visible`. Checked: the heading gets focus with `outline: none`, and buttons still show the ring.
-
----
-
-## [Your bug report]
-
-Use the template from the conversation:
-> Bug: … / Steps to reproduce: 1) … 2) … 3) … / Expected: … / Actual: … / Browser and screen size: … / Find the root cause first. Explain it in two sentences. Then fix it. Then tell me how to confirm the fix.

@@ -46,8 +46,6 @@ Before and after screenshots are in `docs/screenshots/bug1-double-tap-*.jpg`. Sc
 
 **A false alarm.** A progress bar that looked empty in a screenshot measured 20% (`65.6px of 328px`), which is correct; the screenshot was taken mid-animation. The lesson: **check the real state before "fixing" anything.**
 
-[OPTIONAL: if you report a bug yourself with the bug template, add 2–3 sentences here.]
-
 ## 4. Testing
 
 **Unit tests (Vitest): 187 tests in 7 files, all passing.** The logic is kept separate from the page code so it can be tested:
@@ -72,7 +70,7 @@ Before and after screenshots are in `docs/screenshots/bug1-double-tap-*.jpg`. Sc
 
 **Live site (Phase 11).** On the Netlify URL I checked every feature, a refresh on every route, saved data, phone size, and that there are no outside network requests.
 
-**My own checks.** [Describe what you tested by hand: for example your real phone, keyboard only, reduced motion, a private window.]
+**My role in testing.** I reviewed each phase's results and manual test list before starting the next phase, approved creating the public GitHub repository, and deployed the site on Netlify myself. The agent's live-site check then confirmed that my deploy worked.
 
 ## 5. Reflection
 
@@ -88,4 +86,4 @@ Before and after screenshots are in `docs/screenshots/bug1-double-tap-*.jpg`. Sc
 - *It makes small decisions on its own:* for example, where "Practice Again" goes after a review. They were explained, but I had to read the summaries to notice them.
 - *Accounts and publishing stay with me:* it asked before creating the public GitHub repository, and I had to connect Netlify myself.
 
-**What I learned.** [2–4 sentences in your own words.]
+**What I learned.** A clear specification and a phase-by-phase TODO list worked much better than one big request, because each step was small enough to check before moving on. Asking the agent to list unclear points before writing code saved time later. The most useful habit was asking it to verify its work in the real app, not just in tests: the double-tap bug only showed up with real clicks. I also learned that I am still responsible for the result. I had to read its summaries, notice its small decisions, and handle the accounts and the final deployment myself.
