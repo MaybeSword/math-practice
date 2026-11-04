@@ -2,18 +2,19 @@
 
 | # | Deliverable | What to submit | Status |
 |---|---|---|---|
-| 1 | GitHub repository | [GITHUB URL] | Code and README ready locally. **You** create the repo and push (see below). |
-| 2 | Deployed application | [NETLIFY URL] | `netlify.toml` ready. **You** connect the repo in Netlify. |
-| 3 | Development report | `docs/DEVELOPMENT_REPORT.md` → export to PDF/Word | Draft done through Phase 5. Fill in the [brackets]. |
-| 4 | AI conversation evidence | `docs/AI_CONVERSATION_EVIDENCE.md` + exported transcript + screenshots | Draft done. Add your Phase 10 bug. |
+| 1 | GitHub repository | https://github.com/MaybeSword/math-practice | ✅ Public, all commits pushed, full README |
+| 2 | Deployed application | https://incredible-jalebi-1367a4.netlify.app | ✅ Deployed from GitHub, tested live |
+| 3 | Development report | `docs/DEVELOPMENT_REPORT.md` → export to PDF/Word | Draft done through Phase 11. Fill in the [brackets]. |
+| 4 | AI conversation evidence | `docs/AI_CONVERSATION_EVIDENCE.md` + exported transcript + screenshots | Draft done, includes the Phase 10 bug. |
 
-## Before submitting: finish the app
-The spec requires features that are not built yet. Without them the instructor will find them missing:
-- [ ] Phase 6: Similar questions ("Practice similar")
-- [ ] Phase 7: Statistics page
-- [ ] Phase 8: Hash routing + navigation bar
-- [ ] Phase 9: Final child-friendly UI, contrast, accessibility
-- [ ] Phase 10: Full manual checklist + your own bug report
+## App status
+All features from the specification are built (Phases 1–10). The live site was tested: every feature, a refresh on every route, saved data, and phone size.
+
+## Still to do (you)
+- [ ] Fill in the `[brackets]` in the report (name, course, date, your manual tests, "What I learned").
+- [ ] Export the report to PDF or Word (about 2–3 pages).
+- [ ] Export this conversation's transcript and attach it to the AI evidence document.
+- [ ] Open the live URL on your **real phone** once.
 
 ## Deliverable 1: push to GitHub
 ```bash

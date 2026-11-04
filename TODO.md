@@ -92,19 +92,19 @@ Rules: one phase at a time; test by hand; commit per phase; mark finished tasks 
 - [x] Save screenshots of bug reports and fixes for the report. (docs/screenshots/)
 
 ## Phase 11: Git, README, and Deployment
-- [ ] Check that the Git history has one commit per phase.
-- [ ] Create an empty GitHub repository and push the code.
-- [ ] Check that no secrets are in the repository.
-- [ ] Write `README.md`: description, features, install, run locally, run tests, build, deploy. (draft added in Phase 1)
-- [ ] Add `netlify.toml` (build command `npm run build`, publish directory `dist`). (added in Phase 1)
-- [ ] Run `npm run build` and test the `dist` folder with `npm run preview`.
-- [ ] Connect the GitHub repository to Netlify and deploy.
-- [ ] Open the public URL and test: all features, refresh on each route, saved data, phone screen.
-- [ ] Copy the public URL for submission.
+- [x] Check that the Git history has one commit per phase.
+- [x] Create an empty GitHub repository and push the code.
+- [x] Check that no secrets are in the repository.
+- [x] Write `README.md`: description, features, install, run locally, run tests, build, deploy.
+- [x] Add `netlify.toml` (build command `npm run build`, publish directory `dist`).
+- [x] Run `npm run build` and test the `dist` folder with `npm run preview`.
+- [x] Connect the GitHub repository to Netlify and deploy.
+- [x] Open the public URL and test: all features, refresh on each route, saved data, phone screen.
+- [x] Copy the public URL for submission. https://incredible-jalebi-1367a4.netlify.app
 
 ## Phase 12: Submission Package
-- [ ] GitHub repository link.
-- [ ] Public Netlify URL.
+- [x] GitHub repository link. https://github.com/MaybeSword/math-practice
+- [x] Public Netlify URL. https://incredible-jalebi-1367a4.netlify.app
 - [ ] Development report (2 to 3 pages).
 - [ ] AI conversation evidence: initial request, one feature refinement, one debugging interaction.
 - [ ] Check the submission checklist in the assignment.

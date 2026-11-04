@@ -6,7 +6,7 @@ A web app for children ages 7 to 12 to practice **addition, subtraction, multipl
 - All data stays in the browser (`localStorage`, key `mathpractice.v1`).
 - Static site built with Vite and deployed on Netlify.
 
-**Live app:** [NETLIFY URL]
+**Live app:** https://incredible-jalebi-1367a4.netlify.app
 
 ## Features
 

@@ -1,9 +1,9 @@
 # Math Practice App: Development Report
 
 **Student:** [YOUR NAME] · **Course:** [COURSE] · **Date:** [DATE]
-**GitHub:** [GITHUB URL] · **Live app:** [NETLIFY URL]
+**GitHub:** https://github.com/MaybeSword/math-practice · **Live app:** https://incredible-jalebi-1367a4.netlify.app
 
-> Draft written from what really happened in this project up to Phase 10.
+> Draft written from what really happened in this project up to Phase 11.
 > Text in [square brackets] is for you to fill in or update after the remaining phases.
 
 ## 1. Development approach
