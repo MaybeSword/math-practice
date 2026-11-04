@@ -4,7 +4,7 @@ import { accuracy, friendlyMessage } from '../../logic/session.js';
 export function renderSummary(root, { go, record, store }) {
   const acc = accuracy(record.correct, record.attempted);
   root.innerHTML = `
-    <h1>${record.completed ? 'All done!' : 'Good practice!'}</h1>
+    <h1 tabindex="-1">${record.completed ? 'All done!' : 'Good practice!'}</h1>
     <section class="card summary" aria-label="Session summary">
       ${record.completed ? '' : '<p class="tag">Stopped early</p>'}
       <p class="big-score">${acc}%</p>

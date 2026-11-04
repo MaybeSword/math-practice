@@ -24,7 +24,7 @@ export function renderStats(root, { go, store }) {
 
   if (!st.hasData) {
     root.innerHTML = `
-      <h1>My Stats</h1>
+      <h1 tabindex="-1">My Stats</h1>
       <section class="card empty">
         <p class="big-emoji" aria-hidden="true">📊</p>
         <p class="message">No practice yet. Let's start!</p>
@@ -35,7 +35,7 @@ export function renderStats(root, { go, store }) {
   }
 
   root.innerHTML = `
-    <h1>My Stats</h1>
+    <h1 tabindex="-1">My Stats</h1>
     <section class="tiles" aria-label="Totals">
       <div class="tile"><span class="tile-num">${st.total.attempted}</span><span>Answered</span></div>
       <div class="tile tile-green"><span class="tile-num">${st.total.correct}</span><span>Correct</span></div>

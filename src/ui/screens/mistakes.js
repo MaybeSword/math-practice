@@ -21,7 +21,7 @@ export function renderMistakes(root, { go, store, filter = 'all' }) {
   const { active, mastered } = countMistakes(all);
 
   root.innerHTML = `
-    <h1>My Mistakes</h1>
+    <h1 tabindex="-1">My Mistakes</h1>
     <p class="lead">Mistakes help us learn! Active: <strong>${active}</strong> · Mastered: <strong>${mastered}</strong> ⭐</p>
     ${all.length === 0 ? `
       <section class="card empty">

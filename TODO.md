@@ -77,13 +77,13 @@ Rules: one phase at a time; test by hand; commit per phase; mark finished tasks 
 - [x] Test a refresh on every route.
 
 ## Phase 9: Child-Friendly UI and Responsive Design
-- [ ] Choose a bright color palette and a friendly rounded font stack.
-- [ ] Use large buttons (minimum 48px) and large text.
-- [ ] Make the layout work from 360px to 1200px with no horizontal scroll.
-- [ ] Check color contrast (WCAG AA).
-- [ ] Add visible keyboard focus and labels for screen readers.
-- [ ] Add a clean Home screen with big operation buttons.
-- [ ] Test on a phone, a tablet size, and a desktop.
+- [x] Choose a bright color palette and a friendly rounded font stack.
+- [x] Use large buttons (minimum 48px) and large text.
+- [x] Make the layout work from 360px to 1200px with no horizontal scroll.
+- [x] Check color contrast (WCAG AA).
+- [x] Add visible keyboard focus and labels for screen readers.
+- [x] Add a clean Home screen with big operation buttons.
+- [x] Test on a phone, a tablet size, and a desktop. (emulated 360/768/1200 — still test on a real phone)
 
 ## Phase 10: Testing and Bug Fixing
 - [ ] Run all unit tests. All must pass.

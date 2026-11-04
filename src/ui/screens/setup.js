@@ -11,7 +11,7 @@ export function renderSetup(root, { go, defaults }) {
   let count = defaults.count;
 
   root.innerHTML = `
-    <h1>Get Ready!</h1>
+    <h1 tabindex="-1">Get Ready!</h1>
     <form class="setup" novalidate>
       <fieldset>
         <legend>1. Pick operations</legend>

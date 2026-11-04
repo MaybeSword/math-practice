@@ -3,7 +3,7 @@
 **Student:** [YOUR NAME] · **Course:** [COURSE] · **Date:** [DATE]
 **GitHub:** [GITHUB URL] · **Live app:** [NETLIFY URL]
 
-> Draft written from what really happened in this project up to Phase 8.
+> Draft written from what really happened in this project up to Phase 9.
 > Text in [square brackets] is for you to fill in or update after the remaining phases.
 
 ## 1. Development approach
@@ -19,6 +19,7 @@ c3a1732 Phase 2: add question cards
 685b4b8 Phase 6: add similar questions
 25678d7 Phase 7: add statistics page
 05c21dc Phase 8: add hash routing and navigation bar
+[Phase 9 commit] Phase 9: child-friendly UI, contrast, and accessibility
 [add later phases]
 ```
 
@@ -83,6 +84,8 @@ Problems that really came up during development:
 | `stats.test.js` | Totals, accuracy by operation and difficulty, mistake counts, last 10 sessions, empty and broken data. Every expected value is worked out by hand in the test (for example 13/18 = 72%, 9/11 = 82%) |
 
 **Browser checks by the agent.** After each phase the agent used the real app in a built-in browser at phone width (360px and 375px). It checked the results with small scripts: progress labels, counts, the summary percentage, the data saved in localStorage, no horizontal scroll, and button heights.
+
+**Accessibility checks (Phase 9).** The agent wrote a small contrast checker (`npm run contrast`). It tested 26 text/background colour pairs against WCAG AA (4.5:1). The first run found **4 failures**: green text on light green (3.82:1), white on green buttons (4.38:1), white on grey disabled buttons (2.06:1), and the faded answer choices after a reveal (3.68:1). It fixed them with a darker green (#17703c, 5.36:1) and solid colours in place of transparency, and all 26 pairs now pass. A script also checked all 6 screens at 360, 768 and 1200px for horizontal scroll and for any button or link smaller than 48×48px, and found none. Pressing Tab showed a 4px blue focus ring. This check also caught a small problem: headings showed a focus box after a page change, because of a CSS specificity issue. That was fixed too.
 
 **Manual tests by me.** [Describe what you tested by hand from each phase's list: the phone/tablet/desktop sizes, keyboard use, reduced motion, refresh, private window. Add screenshots.]
 

@@ -73,9 +73,21 @@ function redirect(route) {
   window.location.replace(routeToHash(route));
 }
 
+const TITLES = { home: 'Home', setup: 'Get Ready', practice: 'Practice', summary: 'Summary', mistakes: 'My Mistakes', stats: 'My Stats' };
+let firstRender = true;
+
 function render(route) {
   window.scrollTo(0, 0);
+  document.title = `${TITLES[route]} · Math Practice`;
   renderNav(nav, route, { hidden: route === 'practice' });
+  renderScreen(route);
+  // After a page change, move keyboard and screen-reader focus to the new heading
+  // (practice moves focus to the first answer itself). Not on first load.
+  if (!firstRender && route !== 'practice') app.querySelector('h1')?.focus({ preventScroll: true });
+  firstRender = false;
+}
+
+function renderScreen(route) {
   switch (route) {
     case 'setup':
       return renderSetup(app, { go, defaults: store.getSettings() ?? DEFAULT_SETTINGS });
@@ -93,7 +105,11 @@ function render(route) {
     case 'stats':
       return renderStats(app, { go, store });
     default:
-      return renderHome(app, { go });
+      return renderHome(app, {
+        go,
+        defaults: store.getSettings() ?? DEFAULT_SETTINGS,
+        activeMistakes: store.getData().mistakes.filter((m) => m.status === 'active').length,
+      });
   }
 }
 
