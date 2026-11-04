@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# The app uses hash routes (#/stats), so refresh never hits the server path.
+# This rule is a safety net for any other path.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
