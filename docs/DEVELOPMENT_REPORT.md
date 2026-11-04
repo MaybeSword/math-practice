@@ -17,7 +17,7 @@ c3a1732 Phase 2: add question cards
 9446422 Phase 4: save sessions and settings in localStorage
 2fd02ad Phase 5: add mistake tracking and review
 685b4b8 Phase 6: add similar questions
-[Phase 7 commit] Phase 7: add statistics page
+25678d7 Phase 7: add statistics page
 [add later phases]
 ```
 
