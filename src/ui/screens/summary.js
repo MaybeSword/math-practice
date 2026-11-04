@@ -21,7 +21,9 @@ export function renderSummary(root, { go, session }) {
     </div>
   `;
   const settings = { operations: session.operations, difficulty: session.difficulty, count: session.count };
-  root.querySelector('#again').addEventListener('click', () => go('practice', settings));
+  // A review session cannot be repeated with the same settings, so go back to the Mistakes page.
+  root.querySelector('#again').addEventListener('click', () =>
+    session.type === 'review' ? go('mistakes') : go('practice', settings));
   root.querySelector('#review')?.addEventListener('click', () => go('mistakes'));
   root.querySelector('#home').addEventListener('click', () => go('home'));
 }

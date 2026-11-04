@@ -43,13 +43,13 @@ Rules: one phase at a time; test by hand; commit per phase; mark finished tasks 
 - [x] Write unit tests for save and load.
 
 ## Phase 5: Mistake Tracking and Review
-- [ ] Save a mistake when the user marks "I got it wrong".
-- [ ] Build the Mistakes page, newest first.
-- [ ] Add the filter by operation.
-- [ ] Add the Review session that uses saved mistakes.
-- [ ] Mark a mistake as mastered when it is marked right in review.
-- [ ] Add delete one mistake and clear all (with confirm).
-- [ ] Add the empty state ("No mistakes yet. Great job!").
+- [x] Save a mistake when the user marks "I got it wrong".
+- [x] Build the Mistakes page, newest first.
+- [x] Add the filter by operation.
+- [x] Add the Review session that uses saved mistakes.
+- [x] Mark a mistake as mastered when it is marked right in review.
+- [x] Add delete one mistake and clear all (with confirm).
+- [x] Add the empty state ("No mistakes yet. Great job!").
 
 ## Phase 6: Similar Questions
 - [ ] Write `generateSimilar(mistake)` in the generator module.

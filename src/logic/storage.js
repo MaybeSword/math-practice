@@ -2,6 +2,7 @@
 // Works with any object that has getItem/setItem (real localStorage or a fake in tests).
 import { OPERATIONS, DIFFICULTIES } from './ranges.js';
 import { QUESTION_COUNTS } from './session.js';
+import { addMistake } from './mistakes.js';
 
 export const STORAGE_KEY = 'mathpractice.v1';
 export const VERSION = 1;
@@ -110,6 +111,26 @@ export function createStore(storage) {
       const i = data.sessions.findIndex((s) => s.id === record.id);
       if (i >= 0) data.sessions[i] = record;
       else data.sessions.push(record);
+      return persist();
+    },
+    // Mistakes
+    addMistake(mistake) {
+      data.mistakes = addMistake(data.mistakes, mistake);
+      return persist();
+    },
+    markMastered(id) {
+      const m = data.mistakes.find((x) => x.id === id);
+      if (!m) return false;
+      m.status = 'mastered';
+      m.masteredDate = new Date().toISOString();
+      return persist();
+    },
+    deleteMistake(id) {
+      data.mistakes = data.mistakes.filter((m) => m.id !== id);
+      return persist();
+    },
+    clearMistakes() {
+      data.mistakes = [];
       return persist();
     },
     reset() {
