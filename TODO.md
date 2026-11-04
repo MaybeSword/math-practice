@@ -35,12 +35,12 @@ Rules: one phase at a time; test by hand; commit per phase; mark finished tasks 
 - [x] Add "Practice Again", "Review Mistakes", and "Home" buttons.
 
 ## Phase 4: Data Persistence
-- [ ] Write `src/logic/storage.js` for the `mathpractice.v1` key.
-- [ ] Save each session (date, operations, difficulty, counts, completed or incomplete).
-- [ ] Save the last used setup choices and load them as defaults.
-- [ ] Handle broken JSON and missing localStorage without a crash.
-- [ ] Test: refresh the page and check that data is still there.
-- [ ] Write unit tests for save and load.
+- [x] Write `src/logic/storage.js` for the `mathpractice.v1` key.
+- [x] Save each session (date, operations, difficulty, counts, completed or incomplete).
+- [x] Save the last used setup choices and load them as defaults.
+- [x] Handle broken JSON and missing localStorage without a crash.
+- [x] Test: refresh the page and check that data is still there.
+- [x] Write unit tests for save and load.
 
 ## Phase 5: Mistake Tracking and Review
 - [ ] Save a mistake when the user marks "I got it wrong".

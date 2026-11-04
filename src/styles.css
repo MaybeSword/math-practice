@@ -106,3 +106,5 @@ legend { font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
 .stats-list div { background: var(--choice); border-radius: 16px; padding: 10px 4px; }
 .stats-list dt { font-size: 0.95rem; }
 .stats-list dd { margin: 4px 0 0; font-size: 1.8rem; font-weight: 900; }
+
+.notice { max-width: 720px; margin: 8px auto 0; padding: 10px 16px; background: var(--orange-bg); color: #7a3a00; border-radius: 12px; font-size: 1rem; text-align: center; }

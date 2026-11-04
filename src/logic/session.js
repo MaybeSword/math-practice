@@ -31,6 +31,8 @@ export function createSession({ operations, difficulty, count }, rng) {
     index: 0,
     results: [], // { question, picked, correct }
     startedAt: new Date().toISOString(),
+    id: `s-${Date.now()}-${Math.floor(Math.random() * 1e6)}`,
+    type: 'normal',
   };
 }
 

@@ -1,8 +1,11 @@
 import { createCard } from '../card.js';
-import { createSession, currentQuestion, recordResult, nextQuestion, summarize } from '../../logic/session.js';
+import { createSession, currentQuestion, recordResult, nextQuestion, summarize, isFinished } from '../../logic/session.js';
+import { toSessionRecord } from '../../logic/storage.js';
 
-export function renderPractice(root, { go, settings }) {
+export function renderPractice(root, { go, settings, store }) {
   const session = createSession(settings);
+  // Save after every recorded answer, so a refresh or closed tab keeps the work (marked incomplete).
+  const save = () => store.saveSession(toSessionRecord(session, isFinished(session)));
   const n = session.questions.length;
 
   root.innerHTML = `
@@ -31,7 +34,7 @@ export function renderPractice(root, { go, settings }) {
   function show() {
     label.textContent = `Question ${session.index + 1} of ${n}`;
     const card = createCard(currentQuestion(session), {
-      onResult: (result) => { recordResult(session, result); updateScore(); },
+      onResult: (result) => { recordResult(session, result); save(); updateScore(); },
       onNext: () => (nextQuestion(session) ? show() : go('summary', { session })),
     });
     root.querySelector('#card-slot').replaceChildren(card);
