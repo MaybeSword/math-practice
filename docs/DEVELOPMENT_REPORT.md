@@ -16,7 +16,7 @@ c3a1732 Phase 2: add question cards
 60e991f Phase 3: add practice sessions
 9446422 Phase 4: save sessions and settings in localStorage
 2fd02ad Phase 5: add mistake tracking and review
-[Phase 6 commit] Phase 6: add similar questions
+685b4b8 Phase 6: add similar questions
 [add later phases]
 ```
 
